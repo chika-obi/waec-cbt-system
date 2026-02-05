@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<h2>Admin Dashboard</h2>
+
+<section>
+    <h3>Register Student</h3>
+    <input id="regNo" placeholder="Reg Number">
+    <input id="name" placeholder="Student Name">
+    <input id="pin" placeholder="PIN">
+    <button onclick="addStudent()">Add Student</button>
+</section>
+
+<section>
+    <h3>Set Exam Date</h3>
+    <input id="subjectName" placeholder="Subject Name">
+    <input id="examDate" type="date">
+    <button onclick="setExamDate()">Save</button>
+</section>
+
+<section>
+    <h3>View Results</h3>
+    <button onclick="viewResults()">View All Results</button>
+    <pre id="results"></pre>
+</section>
+
+<button onclick="logoutAdmin()">Logout</button>
+
+<script src="../data/subjects.js"></script>
+<script src="../data/students.js"></script>
+<script src="admin.js"></script>
+
+</body>
+</html>

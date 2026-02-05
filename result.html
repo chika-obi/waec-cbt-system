@@ -1,1 +1,31 @@
- # Result display page
+ <!-- # Result display page -->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>WAEC CBT Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="result-container">
+    <h2>Examination Result</h2>
+
+    <div class="result-card">
+        <p><strong>Subject:</strong> <span id="subject"></span></p>
+        <p><strong>Score:</strong> <span id="score"></span></p>
+        <p><strong>Percentage:</strong> <span id="percentage"></span>%</p>
+        <p><strong>Grade:</strong> <span id="grade"></span></p>
+    </div>
+
+    <div class="result-actions">
+        <button onclick="goDashboard()">Back to Dashboard</button>
+        <button onclick="logout()">Logout</button>
+    </div>
+</div>
+
+<script src="js/result.js"></script>
+
+</body>
+</html>

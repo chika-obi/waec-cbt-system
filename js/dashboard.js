@@ -52,3 +52,5 @@ function startExam(subjectName) {
     localStorage.setItem("currentSubject", subjectName);
     window.location.href = "exam.html";
 }
+const allResults = JSON.parse(localStorage.getItem("allResults")) || {};
+const writtenSubjects = allResults[loggedInStudent.regNo]?.map(r => r.subject) || [];
