@@ -14,7 +14,7 @@ const subjects = [
   },
   {
     name: "Mathematics",
-    examDate: "2026-05-18",
+    examDate: "2026-02-05",
     hasPractical: false
   },
   {
