@@ -8,6 +8,11 @@ const subjects = [
     hasPractical: false
   },
   {
+    name: "Commerce",
+    examDate: "2026-06-27",
+    hasPractical: false
+  },
+  {
     name: "Mathematics",
     examDate: "2026-05-18",
     hasPractical: false
@@ -46,5 +51,11 @@ const subjects = [
     name: "Literature",
     examDate: "2026-05-27",
     hasPractical: false
+  },
+  {
+    name: "CRK",
+    examDate: "2026-07-27",
+    hasPractical: false
   }
+
 ];

@@ -18,7 +18,7 @@ const students = [
     regNo: "WAEC/SS3/003",
     name: "Precious Fubara",
     subjects: ["English", "Mathematics", "Literature", "Commerce", "Government","CRK","Economics","history","Civic Education"],
-    pin: "2345"
+    pin: "3456"
   },
   
   // add more students here

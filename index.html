@@ -1,1 +1,28 @@
  <!-- # Landing / Login page for students -->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WAEC CBT Login</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="login-container">
+        <h2>WAEC CBT Login</h2>
+        <form id="loginForm">
+            <label for="regNo">Registration Number:</label>
+            <input type="text" id="regNo" placeholder="Enter your regNo" required>
+
+            <label for="pin">PIN:</label>
+            <input type="password" id="pin" placeholder="Enter your PIN" required>
+
+            <button type="submit">Login</button>
+        </form>
+        <p id="errorMsg" class="error-msg"></p>
+    </div>
+
+    <script src="data/students.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>
