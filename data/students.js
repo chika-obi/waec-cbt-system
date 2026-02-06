@@ -5,19 +5,19 @@ const students = [
   {
     regNo: "WAEC/SS3/001",
     name: "Chika-Obi Kpanuku",
-    subjects: ["English", "Mathematics", "Physics", "Chemistry","Biology", "Economics", "Government","Agricultural Science","Geography"],
+    subjects: ["English Language", "Mathematics", "Physics", "Chemistry","Biology", "Economics", "Government","Agricultural Science","Geography"],
     pin: "1234"
   },
   {
     regNo: "WAEC/SS3/002",
     name: "Dein Honour Davies",
-    subjects: ["English", "Mathematics", "Literature", "Commerce", "Government","CRK","Economics","history","Civic Education"],
+    subjects: ["English Language", "Mathematics", "Literature", "Commerce", "Government","CRK","Economics","history","Civic Education"],
     pin: "2345"
   },
    {
     regNo: "WAEC/SS3/003",
     name: "Precious Fubara",
-    subjects: ["English", "Mathematics", "Literature", "Commerce", "Government","CRK","Economics","history","Civic Education"],
+    subjects: ["English Language", "Mathematics", "Literature", "Commerce", "Government","CRK","Economics","history","Civic Education"],
     pin: "3456"
   },
   
