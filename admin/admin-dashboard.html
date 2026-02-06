@@ -1,41 +1,117 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Admin Dashboard</title>
     <meta charset="UTF-8">
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CBT Admin Dashboard</title>
+
     <link rel="stylesheet" href="../css/admin.css">
 </head>
 <body>
 
-<h2>Admin Dashboard</h2>
+<!-- ================= HEADER ================= -->
+<header class="admin-header">
+    <h1>CBT Examination Admin Panel</h1>
+    <button class="logout-btn" onclick="logoutAdmin()">Logout</button>
+</header>
 
-<section>
-    <h3>Register Student</h3>
-    <input id="regNo" placeholder="Reg Number">
-    <input id="name" placeholder="Student Name">
-    <input id="pin" placeholder="PIN">
-    <button onclick="addStudent()">Add Student</button>
-</section>
+<!-- ================= SIDEBAR ================= -->
+<nav class="admin-sidebar">
+    <ul>
+        <li onclick="openSection('students')">Students</li>
+        <li onclick="openSection('exams')">Exam Scheduling</li>
+        <li onclick="openSection('results')">Results</li>
+        <li onclick="logoutAdmin()">Logout</li>
+    </ul>
+</nav>
 
-<section>
-    <h3>Set Exam Date</h3>
-    <input id="subjectName" placeholder="Subject Name">
-    <input id="examDate" type="date">
-    <button onclick="setExamDate()">Save</button>
-</section>
+<!-- ================= MAIN CONTENT ================= -->
+<main class="admin-main">
 
-<section>
-    <h3>View Results</h3>
-    <button onclick="viewResults()">View All Results</button>
-    <pre id="results"></pre>
-</section>
+    <!-- ===== STUDENT MANAGEMENT ===== -->
+    <section class="admin-card" id="students">
+        <h2>Student Management</h2>
+        <button onclick="openStudentModal()">➕ Register Student</button>
+    </section>
 
-<button onclick="logoutAdmin()">Logout</button>
+    <!-- ===== EXAM DATE MANAGEMENT ===== -->
+    <section class="admin-card" id="exams">
+        <h2>Exam Scheduling</h2>
 
-<script src="../data/subjects.js"></script>
+        <div class="input-group">
+            <input id="subjectName" placeholder="Subject Name (e.g Physics)">
+            <input id="examDate" type="date">
+            <button onclick="setExamDate()">Save Exam Date</button>
+        </div>
+    </section>
+
+    <!-- ===== RESULTS ===== -->
+    <section class="admin-card" id="results">
+        <h2>Results</h2>
+
+        <input type="text" id="results-search" placeholder="Search by Reg No or Name">
+
+        <button class="view-btn" onclick="viewResults()">Load Results</button>
+
+        <div class="results-table-container">
+            <table id="results-table">
+                <thead>
+                    <tr>
+                        <th>Reg No</th>
+                        <th>Name</th>
+                        <th>Subject</th>
+                        <th>Score</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody id="resultsBody">
+                    <!-- JS will populate -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="pagination">
+            <button>Prev</button>
+            <button>Next</button>
+        </div>
+    </section>
+
+</main>
+
+<!-- ================= STUDENT MODAL ================= -->
+<div class="modal" id="studentModal">
+    <div class="modal-content">
+        <span class="modal-close" onclick="closeStudentModal()">&times;</span>
+        <h2>Register Student</h2>
+
+        <div class="input-group">
+            <input id="regNo" placeholder="Registration Number">
+            <input id="name" placeholder="Student Name">
+            <input id="pin" placeholder="PIN">
+            <button onclick="addStudent()">Register</button>
+        </div>
+    </div>
+</div>
+
+<!-- ================= SCRIPTS ================= -->
 <script src="../data/students.js"></script>
+<script src="../data/subjects.js"></script>
 <script src="admin.js"></script>
+
+<!-- ================= SMALL UI SCRIPT ================= -->
+<script>
+    function openStudentModal() {
+        document.getElementById("studentModal").style.display = "flex";
+    }
+
+    function closeStudentModal() {
+        document.getElementById("studentModal").style.display = "none";
+    }
+
+    function openSection(id) {
+        document.getElementById(id).scrollIntoView({ behavior: "smooth" });
+    }
+</script>
 
 </body>
 </html>

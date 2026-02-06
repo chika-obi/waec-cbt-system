@@ -1,350 +1,326 @@
-/* =====================================
-   ADMIN PANEL – WAEC CBT SYSTEM
-   Author: Chika-Obi (CBT Project)
-===================================== */
+/* =========================
+   PROFESSIONAL ADMIN DASHBOARD
+========================= */
 
-/* ---------- RESET ---------- */
+/* ===== GLOBAL RESET ===== */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
+    font-family: "Segoe UI", Arial, sans-serif;
 }
 
-/* ---------- GLOBAL ---------- */
 body {
-    background: #f4f6fb;
-    color: #222;
-}
-
-/* ---------- ADMIN LOGIN ---------- */
-.admin-login-wrapper {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.admin-login-box {
-    width: 380px;
-    background: #ffffff;
-    padding: 30px 28px;
-    border-radius: 8px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
-
-.admin-login-box h2 {
-    text-align: center;
-    margin-bottom: 22px;
-    color: #1a237e;
-    font-size: 22px;
-}
-
-.admin-login-box label {
-    display: block;
-    margin-bottom: 6px;
-    font-size: 14px;
-    font-weight: 600;
-}
-
-.admin-login-box input {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 18px;
-    border-radius: 5px;
-    border: 1px solid #cfd4e0;
-    font-size: 14px;
-}
-
-.admin-login-box input:focus {
-    outline: none;
-    border-color: #1a237e;
-}
-
-.admin-login-box button {
-    width: 100%;
-    padding: 12px;
-    background: #1a237e;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    font-size: 15px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-.admin-login-box button:hover {
-    background: #0e154e;
-}
-
-/* ---------- ERROR MESSAGE ---------- */
-#error {
-    font-size: 13px;
-    margin-top: 8px;
-}
-
-/* =====================================
-   DASHBOARD STYLES (USED LATER)
-===================================== */
-
-/* ---------- LAYOUT ---------- */
-.admin-dashboard {
-    display: flex;
+    background: #f4f6f8;
+    color: #333;
     min-height: 100vh;
 }
 
-/* ---------- SIDEBAR ---------- */
-.admin-sidebar {
-    width: 240px;
-    background: #1a237e;
+/* ===== HEADER ===== */
+.admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(90deg, #1e3799, #0a3d62);
     color: #fff;
-    padding: 20px;
+    padding: 20px 30px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-radius: 0 0 10px 10px;
 }
 
-.admin-sidebar h3 {
-    text-align: center;
-    margin-bottom: 30px;
-    font-size: 19px;
+.admin-header h1 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.logout-btn {
+    background: #e55039;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+}
+
+/* ===== SIDEBAR NAVIGATION ===== */
+.admin-sidebar {
+    position: fixed;
+    left: 0;
+    top: 80px;
+    width: 220px;
+    height: calc(100vh - 80px);
+    background: #1e3799;
+    color: #fff;
+    padding-top: 20px;
+    border-radius: 0 10px 10px 0;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+    transition: width 0.3s ease;
 }
 
 .admin-sidebar ul {
     list-style: none;
+    padding: 0;
 }
 
 .admin-sidebar li {
-    margin-bottom: 12px;
+    padding: 15px 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 15px;
 }
 
-.admin-sidebar a {
+.admin-sidebar li:hover {
+    background: #162c7d;
+    border-left: 5px solid #1e90ff;
+    transform: translateX(3px);
+}
+
+/* Add icons to sidebar items */
+.admin-sidebar li::before {
+    content: "🔹"; /* default icon, you can replace per item using JS or CSS class */
+    margin-right: 10px;
+}
+
+/* ===== MAIN CONTENT ===== */
+.admin-main {
+    margin-left: 240px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* ===== CARDS ===== */
+.admin-card {
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.admin-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.admin-card h2 {
+    margin-bottom: 20px;
+    color: #0a3d62;
+}
+
+/* ===== INPUTS ===== */
+.input-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.input-group input {
+    flex: 1 1 200px;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.input-group input:focus {
+    border-color: #1e90ff;
+    box-shadow: 0 0 5px rgba(30,144,255,0.4);
+}
+
+.input-group button {
+    flex: 1 1 120px;
+    background: linear-gradient(90deg, #1e90ff, #0c7cd5);
     color: #fff;
-    text-decoration: none;
-    display: block;
-    padding: 9px;
-    border-radius: 4px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.input-group button:hover {
+    background: linear-gradient(90deg, #0c7cd5, #0a60b2);
+    transform: scale(1.05);
+}
+
+/* ===== SEARCH BAR FOR RESULTS ===== */
+#results-search {
+    width: 100%;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
     font-size: 14px;
 }
 
-.admin-sidebar a:hover {
-    background: rgba(255,255,255,0.18);
+/* ===== RESULTS TABLE ===== */
+.results-table-container {
+    margin-top: 20px;
+    overflow-x: auto;
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
 }
 
-/* ---------- MAIN CONTENT ---------- */
-.admin-content {
-    flex: 1;
-    padding: 25px;
+#results-table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-/* ---------- HEADER ---------- */
-.admin-header {
-    background: #fff;
-    padding: 15px 20px;
-    border-radius: 6px;
-    margin-bottom: 25px;
+#results-table th, #results-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+#results-table th {
+    background: #1e3799;
+    color: #fff;
+    position: sticky;
+    top: 0;
+}
+
+#results-table tr:nth-child(even) {
+    background: #f9f9f9;
+}
+
+#results-table tr:hover {
+    background: #e6f0ff;
+}
+
+/* ===== PAGINATION ===== */
+.pagination {
     display: flex;
-    justify-content: space-between;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.pagination button {
+    background: #1e90ff;
+    color: #fff;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.pagination button:hover {
+    background: #0c7cd5;
+}
+
+/* ===== VIEW RESULTS BUTTON ===== */
+.view-btn {
+    background: linear-gradient(90deg, #1e90ff, #0c7cd5);
+    color: #fff;
+    padding: 10px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.view-btn:hover {
+    background: linear-gradient(90deg, #0c7cd5, #0a60b2);
+    transform: scale(1.05);
+}
+
+/* ===== MODAL POPUPS ===== */
+.modal {
+    display: none; /* hidden by default */
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.6);
+    justify-content: center;
     align-items: center;
 }
 
-.admin-header h2 {
-    color: #1a237e;
-    font-size: 20px;
-}
-
-.logout-btn {
-    background: crimson;
-    border: none;
-    color: white;
-    padding: 8px 14px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 13px;
-}
-
-.logout-btn:hover {
-    opacity: 0.85;
-}
-
-/* ---------- DASHBOARD CARDS ---------- */
-.dashboard-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-.card {
+.modal-content {
     background: #fff;
-    padding: 18px;
-    border-radius: 6px;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+    padding: 25px;
+    border-radius: 10px;
+    width: 400px;
+    max-width: 90%;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    position: relative;
 }
 
-.card h3 {
-    font-size: 16px;
-    margin-bottom: 10px;
-    color: #1a237e;
+.modal-content h2 {
+    margin-bottom: 20px;
 }
 
-.card p {
-    font-size: 14px;
-    color: #444;
-}
-
-/* ---------- TABLES ---------- */
-table {
-    width: 100%;
-    border-collapse: collapse;
-    background: #fff;
-    border-radius: 6px;
-    overflow: hidden;
-}
-
-th, td {
-    padding: 12px;
-    border-bottom: 1px solid #e6e6e6;
-    font-size: 14px;
-}
-
-th {
-    background: #1a237e;
-    color: #fff;
-    text-align: left;
-}
-
-tr:hover {
-    background: #f2f2f2;
-}
-
-/* ---------- BUTTONS ---------- */
-.btn-primary {
-    background: #1a237e;
-    color: #fff;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 4px;
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 18px;
     cursor: pointer;
+    color: #333;
 }
 
-.btn-danger {
-    background: crimson;
-    color: #fff;
-    border: none;
-    padding: 8px 14px;
-    border-radius: 4px;
-    cursor: pointer;
+.modal-close:hover {
+    color: #e55039;
 }
 
-/* ---------- RESPONSIVE ---------- */
-@media (max-width: 768px) {
-    .admin-dashboard {
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 1024px) {
+    .admin-sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        display: flex;
+        justify-content: space-around;
+        top: 0;
+        padding: 10px 0;
+        border-radius: 0;
+    }
+
+    .admin-main {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .input-group {
         flex-direction: column;
     }
-
-    .admin-sidebar {
-        width: 100%;
-    }
-}
-/* ================================
-   ADMIN PANEL – WAEC CBT SYSTEM
-================================ */
-
-/* RESET */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", Tahoma, Arial, sans-serif;
 }
 
-/* GLOBAL */
-body {
-    background: #f4f6fb;
-    color: #222;
-    padding: 25px;
-}
-
-/* PAGE TITLE */
-h2 {
-    color: #1a237e;
-    margin-bottom: 25px;
-}
-
-/* SECTIONS */
-section {
-    background: #ffffff;
-    padding: 20px;
-    margin-bottom: 25px;
-    border-radius: 6px;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.06);
-}
-
-section h3 {
-    margin-bottom: 15px;
-    color: #1a237e;
-    font-size: 17px;
-}
-
-/* INPUTS */
-input {
-    width: 260px;
-    padding: 10px;
-    margin-right: 10px;
-    margin-bottom: 12px;
-    border-radius: 5px;
-    border: 1px solid #cfd4e0;
-    font-size: 14px;
-}
-
-input:focus {
-    outline: none;
-    border-color: #1a237e;
-}
-
-/* BUTTONS */
-button {
-    padding: 10px 16px;
-    border: none;
-    border-radius: 5px;
-    background: #1a237e;
-    color: #fff;
-    font-size: 14px;
-    font-weight: 600;
-    cursor: pointer;
-}
-
-button:hover {
-    background: #0e154e;
-}
-
-/* LOGOUT BUTTON */
-button[onclick="logoutAdmin()"] {
-    background: crimson;
-    margin-top: 20px;
-}
-
-button[onclick="logoutAdmin()"]:hover {
-    opacity: 0.85;
-}
-
-/* RESULTS VIEW */
-#results {
-    background: #f1f3f6;
-    padding: 15px;
-    border-radius: 5px;
-    margin-top: 12px;
-    font-size: 13px;
-    max-height: 300px;
-    overflow-y: auto;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    input {
-        width: 100%;
-        margin-right: 0;
+@media (max-width: 600px) {
+    .admin-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
     }
 
-    button {
-        width: 100%;
-        margin-bottom: 10px;
+    .input-group input,
+    .input-group button {
+        flex: 1 1 100%;
+    }
+
+    .admin-card {
+        padding: 20px;
     }
 }
