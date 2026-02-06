@@ -1,29 +1,99 @@
- <!-- # Landing / Login page for students -->
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WAEC CBT Login</title>
+    <title>WAEC CBT Examination System</title>
+
+    <!-- CSS (we will style this later) -->
     <link rel="stylesheet" href="css/style.css">
-    
 </head>
 <body>
-    <div class="login-container">
-        <h2>WAEC CBT Login</h2>
-        <form id="loginForm">
-            <label for="regNo">Registration Number:</label>
-            <input type="text" id="regNo" placeholder="Enter your regNo" required>
 
-            <label for="pin">PIN:</label>
-            <input type="password" id="pin" placeholder="Enter your PIN" required>
+   <header class="exam-header">
+    <div class="header-content">
+        <div>
+            <h1>WAEC Computer-Based Test (CBT)</h1>
+            <p>School-Based Examination Platform</p>
+        </div>
 
-            <button type="submit">Login</button>
-        </form>
-        <p id="errorMsg" class="error-msg"></p>
+        <!-- Admin Button -->
+        <button class="admin-btn" onclick="goToAdmin()">Admin</button>
     </div>
+</header>
 
+
+    <!-- ================= MAIN CONTENT ================= -->
+    <main class="main-container">
+
+        <!-- ===== Instructions Panel ===== -->
+        <section class="instructions">
+            <h2>Important Examination Instructions</h2>
+            <ul>
+                <li>Ensure you are using a functional computer system.</li>
+                <li>Do not refresh or close the browser during the examination.</li>
+                <li>Each subject can only be accessed on its approved examination date.</li>
+                <li>The examination timer starts immediately after you begin.</li>
+                <li>All unanswered questions will be marked as attempted at time-out.</li>
+            </ul>
+        </section>
+
+
+        <!-- ===== Login Panel (YOUR EXISTING FORM) ===== -->
+        <section class="login-section">
+            <h2>Candidate Login</h2>
+
+            <form id="loginForm">
+                <label for="regNo">Registration Number</label>
+                <input type="text" id="regNo" placeholder="Enter your Registration Number" required>
+
+                <label for="pin">Examination PIN</label>
+                <input type="password" id="pin" placeholder="Enter your PIN" required>
+
+                <button type="submit">Login</button>
+            </form>
+
+            <p id="errorMsg" class="error-msg"></p>
+        </section>
+
+
+        <!-- ===== Exam Information Panel ===== -->
+        <section class="exam-info">
+            <h3>Examination Information</h3>
+            <p><strong>Session:</strong> May / June SSCE</p>
+            <p><strong>Mode:</strong> Computer-Based Test (CBT)</p>
+            <p><strong>Status:</strong> System Ready</p>
+            <p><strong>Date & Time:</strong> <span id="dateTime"></span></p>
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="exam-footer">
+        <p>&copy; 2026 | WAEC CBT Examination System</p>
+        <p>Powered by School ICT Unit</p>
+    </footer>
+
+
+    <!-- ================= SCRIPTS ================= -->
     <script src="data/students.js"></script>
     <script src="js/auth.js"></script>
+
+    <!-- Live Clock (safe, optional) -->
+    <script>
+        function updateTime() {
+            const now = new Date();
+            document.getElementById("dateTime").textContent = now.toLocaleString();
+        }
+        setInterval(updateTime, 1000);
+        updateTime();
+    </script>
+    <script>
+    function goToAdmin() {
+        window.location.href = "admin/admin-login.html";
+    }
+</script>
+
 </body>
 </html>
