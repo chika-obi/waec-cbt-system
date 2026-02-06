@@ -19,12 +19,12 @@ const subjects = [
   },
   {
     name: "Physics",
-    examDate: "2026-05-21",
+    examDate: "2026-02-06",
     hasPractical: true
   },
   {
     name: "Biology",
-    examDate: "2026-05-22",
+    examDate:  "2026-02-06",
     hasPractical: true
   },
   {

@@ -10,7 +10,7 @@ const students = [
   },
   {
     regNo: "WAEC/SS3/002",
-    name: "Dein Honours David",
+    name: "Dein Honour Davies",
     subjects: ["English", "Mathematics", "Literature", "Commerce", "Government","CRK","Economics","history","Civic Education"],
     pin: "2345"
   },
