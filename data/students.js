@@ -29,7 +29,7 @@ const students = [
   {
     regNo: "WAEC/SS3/005",
     name: "Loveth Okon",
-    subjects : ["English Language","Mathematics","Chemistry"],
+    subjects: ["English Language", "Mathematics", "Physics", "Chemistry","Biology", "Economics", "Government","Agricultural Science","Geography","History"],
     pin:"lovedeglam"
   }
   
