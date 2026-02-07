@@ -6,23 +6,39 @@
     <title>WAEC CBT Examination</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/exam.css">
 </head>
 <body>
 
 <div class="exam-container">
     <h2 id="subjectTitle"></h2>
-    <div class="timer">Time Left: <span id="time">60:00</span></div>
 
-    <div id="questionBox"></div>
-
-    <div class="navigation">
-        <button id="nextBtn">Next</button>
-    </div>
+<div class="timer">
+    Time Left: <span id="time">60.00</span>
 </div>
 
+<div class="exam-layout">
+
+    <!-- Question Navigation -->
+    <div class="question-nav" id="questionNav"></div>
+
+    <!-- Question Area -->
+    <div class="question-area">
+        <div id="questionBox"></div>
+
+        <div class="navigation">
+            <button id="prevBtn">Previous</button>
+            <button id="nextBtn">Next</button>
+        </div>
+    </div>
+
+</div>
 <script src="data/questions/physics.js"></script>
 <script src="data/questions/biology.js"></script>
 <script src="data/questions/mathematics.js"></script>
+<script src="data/questions/agric.js"></script>
+
+
 <script src="js/exam.js"></script>
 
 </body>

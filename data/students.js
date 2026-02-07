@@ -20,6 +20,12 @@ const students = [
     subjects: ["English Language", "Mathematics", "Literature", "Commerce", "Government","CRK","Economics","history","Civic Education"],
     pin: "3456"
   },
+   {
+    regNo: "WAEC/SS3/004",
+    name: "Bestman Azeem Ekwueme",
+    subjects: ["English Language", "Mathematics", "Physics", "Chemistry","Biology", "Economics", "Government","Agricultural Science","Geography"],
+    pin: "sugar"
+  },
   
   // add more students here
 ];

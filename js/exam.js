@@ -4,7 +4,9 @@
 const subjectTitle = document.getElementById("subjectTitle");
 const questionBox = document.getElementById("questionBox");
 const nextBtn = document.getElementById("nextBtn");
+const prevBtn = document.getElementById("prevBtn");
 const timeDisplay = document.getElementById("time");
+const questionNav = document.getElementById("questionNav");
 
 // Get subject
 const subject = localStorage.getItem("currentSubject");
@@ -12,17 +14,26 @@ if (!subject) window.location.href = "dashboard.html";
 
 // Load questions dynamically
 let questions = [];
+
 if (subject === "Physics") questions = physicsQuestions;
 if (subject === "Biology") questions = biologyQuestions;
 if (subject === "Mathematics") questions = mathematicsQuestions;
+if (subject === "Agricultural Science") questions = agriculturalScienceQuestions;
+
+if (!questions || questions.length === 0) {
+    alert("No questions found for this subject");
+    window.location.href = "dashboard.html";
+}
 
 subjectTitle.textContent = subject + " Examination";
 
 let currentQuestionIndex = 0;
 let score = 0;
-let selectedAnswer = null;
 
-// Timer (60 minutes)
+// Store answers
+let userAnswers = new Array(questions.length).fill(null);
+
+// ================= TIMER =================
 let timeLeft = 60 * 60;
 const timer = setInterval(() => {
     let minutes = Math.floor(timeLeft / 60);
@@ -36,50 +47,82 @@ const timer = setInterval(() => {
     }
 }, 1000);
 
-// Load question
+// ================= QUESTION NAV =================
+function buildQuestionNav() {
+    questionNav.innerHTML = "";
+    questions.forEach((_, index) => {
+        const btn = document.createElement("button");
+        btn.textContent = index + 1;
+        btn.className = "nav-btn";
+        btn.onclick = () => {
+            currentQuestionIndex = index;
+            loadQuestion();
+        };
+        questionNav.appendChild(btn);
+    });
+}
+
+// ================= LOAD QUESTION =================
 function loadQuestion() {
     const q = questions[currentQuestionIndex];
-    selectedAnswer = null;
 
     questionBox.innerHTML = `
         <h3>Question ${currentQuestionIndex + 1}</h3>
         <p>${q.question}</p>
         ${q.options.map(opt => `
             <label>
-                <input type="radio" name="option" value="${opt}">
+                <input type="radio" name="option" value="${opt}"
+                ${userAnswers[currentQuestionIndex] === opt ? "checked" : ""}>
                 ${opt}
             </label><br>
         `).join("")}
     `;
 
     document.querySelectorAll("input[name='option']").forEach(input => {
-        input.addEventListener("change", e => selectedAnswer = e.target.value);
+        input.addEventListener("change", e => {
+            userAnswers[currentQuestionIndex] = e.target.value;
+            updateNavStatus();
+        });
+    });
+
+    updateNavStatus();
+}
+
+// ================= UPDATE NAV STATUS =================
+function updateNavStatus() {
+    document.querySelectorAll(".nav-btn").forEach((btn, index) => {
+        btn.classList.remove("current", "answered");
+
+        if (userAnswers[index]) btn.classList.add("answered");
+        if (index === currentQuestionIndex) btn.classList.add("current");
     });
 }
 
-// Next button
+// ================= BUTTON EVENTS =================
 nextBtn.addEventListener("click", () => {
-    if (!selectedAnswer) {
-        alert("Please select an answer");
-        return;
-    }
-
-    if (selectedAnswer === questions[currentQuestionIndex].answer) {
-        score++;
-    }
-
-    currentQuestionIndex++;
-
-    if (currentQuestionIndex < questions.length) {
+    if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
         loadQuestion();
     } else {
         finishExam();
     }
 });
 
-// Finish exam
+prevBtn.addEventListener("click", () => {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        loadQuestion();
+    }
+});
+
+// ================= FINISH EXAM =================
 function finishExam() {
     clearInterval(timer);
+
+    score = 0;
+    questions.forEach((q, i) => {
+        if (userAnswers[i] === q.answer) score++;
+    });
 
     const percentage = Math.round((score / questions.length) * 100);
     const grade = waecGrade(percentage);
@@ -96,7 +139,7 @@ function finishExam() {
     window.location.href = "result.html";
 }
 
-// WAEC grading system
+// ================= WAEC GRADING =================
 function waecGrade(percent) {
     if (percent >= 75) return "A1";
     if (percent >= 70) return "B2";
@@ -109,5 +152,6 @@ function waecGrade(percent) {
     return "F9";
 }
 
-// Start exam
+// ================= START EXAM =================
+buildQuestionNav();
 loadQuestion();

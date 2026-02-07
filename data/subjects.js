@@ -3,13 +3,13 @@
 
 const subjects = [
   { name: "English Language", examDate: "2026-05-15", hasPractical: false },
-  { name: "Mathematics", examDate: "2026-05-16", hasPractical: false },
+  { name: "Mathematics", examDate: "2026-02-07", hasPractical: false },
   { name: "Physics", examDate: "2026-05-17", hasPractical: true },
-  { name: "Chemistry", examDate: "2026-05-18", hasPractical: true },
+  { name: "Chemistry", examDate: "2026-02-06", hasPractical: false },
   { name: "Biology", examDate: "2026-05-19", hasPractical: true },
 
   { name: "Further Mathematics", examDate: "2026-05-20", hasPractical: false },
-  { name: "Agricultural Science", examDate: "2026-05-21", hasPractical: true },
+  { name: "Agricultural Science", examDate: "2026-02-07", hasPractical: true },
   { name: "Economics", examDate: "2026-05-22", hasPractical: false },
   { name: "Commerce", examDate: "2026-05-23", hasPractical: false },
   { name: "Government", examDate: "2026-05-24", hasPractical: false },
