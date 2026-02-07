@@ -19,6 +19,19 @@ if (subject === "Physics") questions = physicsQuestions;
 if (subject === "Biology") questions = biologyQuestions;
 if (subject === "Mathematics") questions = mathematicsQuestions;
 if (subject === "Agricultural Science") questions = agriculturalScienceQuestions;
+if(subject === "Chemistry") questions = chemistryQuestions;
+if(subject === "Further Mathematics") questions = furtherMathQuestions;
+if (subject === "Economics") questions = economicsQuestions; 
+if(subject === "Commerce") questions = commerceQuestions;
+if(subject === "Geography") questions = geographyQuestions;
+if (subject === "Government") questions = governmentQuestions; 
+if(subject === "Civic Education") questions = civicEducationQuestions;
+if (subject === "History") questions = historyQuestions;
+if(subject === "Literature in English") questions = literatureInEnglishQuestions;
+    
+
+    
+
 
 if (!questions || questions.length === 0) {
     alert("No questions found for this subject");
