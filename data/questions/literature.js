@@ -45,7 +45,7 @@ const literatureInEnglishQuestions = [
   { id: 44, question: "Characterization in literature is:", options: ["The process of describing a character", "Plot twist", "Rhyme scheme", "Setting"], answer: "The process of describing a character" },
   { id: 45, question: "The protagonist of 'No Longer at Ease' is:", options: ["Obi Okonkwo", "Okonkwo", "Baroka", "Sidi"], answer: "Obi Okonkwo" },
   { id: 46, question: "Drama is a literary form that is:", options: ["Intended for performance on stage", "Written only as essays", "Written only as poems", "Written as reports"], answer: "Intended for performance on stage" },
-  { id: 47, question: "The author of 'Our Husband Has Gone Mad Again' is:", options: ["Wole Soyinka", "Chinua Achebe", "Ngugi wa Thiong'o", "Ama Ata Aidoo"], answer: "Wole Soyinka" },
+  { id: 47, question: "The author of 'Our Husband Has Gone Mad Again' is:", options: ["Ola Rotimi", "Chinua Achebe", "Ngugi wa Thiong'o", "Ama Ata Aidoo"], answer: "Ola Rotimi" },
   { id: 48, question: "Irony is:", options: ["Contrast between expectation and reality", "Dialogue only", "Plot only", "Setting only"], answer: "Contrast between expectation and reality" },
   { id: 49, question: "The setting of a story refers to:", options: ["Time and place of the events", "Characters only", "Theme only", "Conflict only"], answer: "Time and place of the events" },
   { id: 50, question: "Narrative voice in literature refers to:", options: ["Who tells the story", "The climax", "The theme", "The moral"], answer: "Who tells the story" }

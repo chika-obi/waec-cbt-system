@@ -23,13 +23,13 @@ const students = [
    {
     regNo: "WAEC/SS3/004",
     name: "Bestman Azeem Ekwueme",
-    subjects: ["English Language", "Mathematics", "Physics", "Chemistry","Biology", "Economics", "Government","Agricultural Science","Geography","History"],
+    subjects: ["Literature in English", "Mathematics", "Physics", "Chemistry","Biology", "Economics", "Government","Agricultural Science","Geography","History"],
     pin: "sugar"
   },
   {
     regNo: "WAEC/SS3/005",
     name: "Loveth Okon",
-    subjects: ["English Language", "Mathematics", "Physics", "Chemistry","Biology", "Economics", "Government","Agricultural Science","Geography","History"],
+    subjects: ["Christian Religious Knowledge (CRK)", "Mathematics", "Physics", "Chemistry","Biology", "Economics", "Government","Agricultural Science","Geography","History"],
     pin:"lovedeglam"
   }
   

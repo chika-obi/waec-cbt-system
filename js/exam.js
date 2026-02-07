@@ -27,7 +27,9 @@ if(subject === "Geography") questions = geographyQuestions;
 if (subject === "Government") questions = governmentQuestions; 
 if(subject === "Civic Education") questions = civicEducationQuestions;
 if (subject === "History") questions = historyQuestions;
-if(subject === "Literature in English") questions = literatureInEnglishQuestions;
+if (subject === "Christian Religious Knowledge (CRK)") questions = cRKQuestions;
+if (subject === "Literature in English") questions = literatureInEnglishQuestions;
+if (subject ===  "English Language") questions = englishQuestions;
     
 
     

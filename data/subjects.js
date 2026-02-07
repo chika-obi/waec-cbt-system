@@ -2,7 +2,7 @@
 // data/subjects.js
 
 const subjects = [
-  { name: "English Language", examDate: "2026-05-15", hasPractical: false },
+  { name: "English Language", examDate: "2026-02-07", hasPractical: false },
   { name: "Mathematics", examDate: "2026-02-07", hasPractical: false },
   { name: "Physics", examDate: "2026-05-17", hasPractical: true },
   { name: "Chemistry", examDate: "2026-02-07", hasPractical: false },
@@ -18,7 +18,7 @@ const subjects = [
   { name: "Civic Education", examDate: "2026-02-07", hasPractical: false },
   { name: "History", examDate: "2026-02-07", hasPractical: false },
   { name: "Literature in English", examDate: "2026-02-07", hasPractical: false },
-  { name: "Christian Religious Knowledge (CRK)", examDate: "2026-05-29", hasPractical: false },
+  { name: "Christian Religious Knowledge (CRK)", examDate: "2026-02-07", hasPractical: false },
 
   { name: "Islamic Religious Knowledge (IRK)", examDate: "2026-05-30", hasPractical: false },
   { name: "Hausa", examDate: "2026-06-01", hasPractical: false },
